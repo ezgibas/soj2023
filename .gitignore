@@ -3,4 +3,5 @@ log.txt
 traceback.txt
 
 game/saves
+game/cache
 .vscode
