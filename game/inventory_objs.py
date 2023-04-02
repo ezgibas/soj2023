@@ -43,6 +43,10 @@ class Inventory:
             result += str(item) + "\n"
         return result
 
+    # reset the inventory
+    def reset(self):
+        self.items = []
+
     # check if the inventory has an item
     # item (Item): item to check
     def hasitem(self, item):

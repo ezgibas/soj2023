@@ -1,7 +1,4 @@
 label rising_action:
-    python:
-        items_collected = 0
-        item_limit = 2
     "You have to prepare immediately. The ritual will be performed at sundown, the precise time you have predicted the emergence of cicadas. "
     "It is smartest to search outside first, while you still have sunlight overhead."
     show window_view

@@ -8,6 +8,7 @@
 init python:
     from inventory_objs import Inventory, Item
     global_inventory = Inventory([])
+    item_limit = 2
 
 # --- Characters ---
 define m = Character("Magnolia")
@@ -50,6 +51,9 @@ define bumblebees = Item("bumblebees")
 # --- GAME SCRIPT ---
 
 label start:
+    python:
+        global_inventory.reset()
+        items_collected = 0
     #call exposition
     #call inciting_incident
     call rising_action
