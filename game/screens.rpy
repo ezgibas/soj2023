@@ -559,8 +559,7 @@ screen about():
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
-
+            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] and ♡.\n\n[renpy.license!t]")
 
 style about_label is gui_label
 style about_label_text is gui_label_text
