@@ -15,6 +15,8 @@ class Item:
     # equality operator
     # two items are the same if they have the same name
     def __eq__(self, other):
+        if not isinstance(other, Item):
+            return False
         return self.name == other.name
 
     # string representation of the item
@@ -41,26 +43,33 @@ class Inventory:
             result += str(item) + "\n"
         return result
 
+    # check if the inventory has an item
+    # item (Item): item to check
+    def hasitem(self, item):
+        return item in self.items
+
     # add an item to the inventory
     # item (Item): item to add
     def additem(self, item):
-        self.items.append(item)
-
-
-# Function object for adding an item
-class AddItem:
-    def __init__(self, item, inventory):
-        self.item = item
-        self.inventory = inventory
-
-    # callable:
-    # item (Item): item to add
-    # inventory (Inventory): inventory to add the item to
-    def __call__(self):
-        if self.item in self.inventory.items:
-            self.item.increase()
+        if self.hasitem(item):
+            item.increase()
         else:
-            self.item.increase()
-            self.inventory.additem(self.item)
+            item.increase()
+            self.items.append(item)
         if (debug):
-            print(self.inventory)
+            print(self)
+
+
+# # Function object for adding an item
+# class AddItem:
+#     def __init__(self, item, inventory):
+#         self.item = item
+#         self.inventory = inventory
+
+#     # callable:
+#     # item (Item): item to add
+#     # inventory (Inventory): inventory to add the item to
+#     def __call__(self):
+#         self.inventory.additem(self.item)
+#         if (debug):
+#             print(self.inventory)
