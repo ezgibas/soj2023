@@ -130,7 +130,6 @@ label collect_item_confirm(item_name, original_screen):
         menu:
             "Yes": 
                 $ items_collected += 1
-                $ print(items_collected)
                 $ global_inventory.additem(Item(item_name))
                 "You collected [item_name]!"
                 call collection_menu_control(original_screen)
@@ -140,11 +139,11 @@ label collect_item_confirm(item_name, original_screen):
                 call collection_menu_control(original_screen)  
                 return
                 
-
+# if user has collected all items, return to narration
+# otherwise, go back to the screen you came from
 label collection_menu_control(original_screen):
     if items_collected >= item_limit:
         "Your pockets are full."
-        jump collection_menu_end
         return
     else:
         call screen expression original_screen

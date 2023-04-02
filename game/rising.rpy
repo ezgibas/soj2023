@@ -20,22 +20,26 @@ label rising_action:
 menu collection_menu:
     "Head to the swamp" if items_collected < item_limit:
         call screen swamp
+        return
 
     "Look up to the trees" if items_collected < item_limit:
         call screen trees
+        return
 
     "Wander your garden" if items_collected < item_limit:
         jump garden_menu
     
-    # "Done Collecting" if items_collected >= item_limit:
-    #     return
+    "Done Collecting" if items_collected >= item_limit:
+        return
 
 
 
 menu garden_menu:
     "Turn a rock":
         call screen rock
+        return
     "Check the flowerbed":
         call screen flowerbed
+        return
     "Go Back":
-        call collection_menu
+        return
