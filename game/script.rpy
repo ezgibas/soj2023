@@ -14,6 +14,7 @@ init python:
 define m = Character("Magnolia")
 
 # --- Images ---
+image mirror reflection = "../images/mirror_reflection.png"
 image morning house bg = "../images/morning_house_bg.png"
 image crow land = "../images/crow_land.png"
 image ink seep = "../images/ink_seep.png"
@@ -54,9 +55,9 @@ label start:
     python:
         global_inventory.reset()
         items_collected = 0
-    #call exposition
-    #call inciting_incident
-    call rising_action
+    call exposition from _call_exposition
+    call inciting_incident from _call_inciting_incident
+    call rising_action from _call_rising_action
 
     return
 

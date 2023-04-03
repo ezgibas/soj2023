@@ -4,6 +4,9 @@ traceback.txt
 
 *.rpyc
 *.rpymc
+*.bak
+
+project.json
 
 game/saves
 game/cache

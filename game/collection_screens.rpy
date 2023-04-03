@@ -1,6 +1,6 @@
 # custom buttons for collection mechanic
 
-define img = "../images/button/mud_%s.png" 
+define img = "../images/button/mud_idle.png" 
 
     
 
@@ -13,17 +13,17 @@ screen swamp:
             spacing 40
             vbox:
                 imagebutton:
-                    auto img # "images/button/mud_%s.png"
+                    idle "images/button/mud_idle.png"
                     action [Call("collect_item_confirm", "mud", "swamp")]
                 label "mud"
             vbox:
                 imagebutton:
-                    auto img # "images/button/water_%s.png"
+                    idle "images/button/water_idle.png"
                     action [Call("collect_item_confirm", "water", "swamp")]
                 label "water"
             vbox:
                 imagebutton:
-                    auto img # "images/button/algae_%s.png"
+                    idle "images/button/algae_idle.png"
                     action [Call("collect_item_confirm", "algae", "swamp")]
                 label "algae"
         frame:
@@ -39,22 +39,22 @@ screen trees:
             spacing 30
             vbox:
                 imagebutton:
-                    auto img # "images/button/wasps_%s.png"
+                    idle "images/button/wasps_idle.png"
                     action [Call("collect_item_confirm", "wasps", "trees")]
                 label "wasps"
             vbox:
                 imagebutton:
-                    auto img # "images/button/caterpillars_%s.png"
+                    idle "images/button/caterpillars_idle.png"
                     action [Call("collect_item_confirm", "caterpillars", "trees")]
                 label "caterpillars"
             vbox:
                 imagebutton:
-                    auto img # "images/button/lichens_%s.png"
+                    idle "images/button/lichens_idle.png"
                     action [Call("collect_item_confirm", "lichens", "trees")]
                 label "lichens"
             vbox:
                 imagebutton:
-                    auto img # "images/button/leaves_%s.png"
+                    idle img #  "images/button/leaves_idle.png"
                     action [Call("collect_item_confirm", "leaves", "trees")]
                 label "leaves"
         frame:
@@ -70,22 +70,22 @@ screen rock:
             spacing 30
             vbox:
                 imagebutton:
-                    auto img # "images/button/worms_%s.png"
+                    idle img # "images/button/worms_idle.png"
                     action [Call("collect_item_confirm", "worms", "rock")]
                 label "worms"
             vbox:
                 imagebutton:
-                    auto img # "images/button/weevils_%s.png"
+                    idle img # "images/button/weevils_idle.png"
                     action [Call("collect_item_confirm", "weevils", "rock")]
                 label "weevils"
             vbox:
                 imagebutton:
-                    auto img # "images/button/grubs_%s.png"
+                    idle img # "images/button/grubs_idle.png"
                     action [Call("collect_item_confirm", "grubs", "rock")]
                 label "grubs"
             vbox:
                 imagebutton:
-                    auto img # "images/button/moss_%s.png"
+                    idle img # "images/button/moss_idle.png"
                     action [Call("collect_item_confirm", "moss", "rock")]
                 label "moss"
         frame:
@@ -96,22 +96,22 @@ screen flowerbed:
     grid 1 2:
         xalign 0.5
         yalign 0.5
-        spacing 50
+        spacing 20
         grid 1 3:
             spacing 20
             vbox:
                 imagebutton:
-                    auto img # "images/button/flowers_%s.png"
+                    idle img # "images/button/flowers_idle.png"
                     action [Call("collect_item_confirm", "flowers", "flowerbed")]
                 label "flowers"
             vbox:
                 imagebutton:
-                    auto img # "images/button/clovers_%s.png"
+                    idle img # "images/button/clovers_idle.png"
                     action [Call("collect_item_confirm", "clovers", "flowerbed")]
                 label "clovers"
             vbox:
                 imagebutton:
-                    auto img # "images/button/bumblebees_%s.png"
+                    idle img # "images/button/bumblebees_idle.png"
                     action [Call("collect_item_confirm", "bumblebees", "flowerbed")]
                 label "bumblebees"
         frame:
@@ -132,11 +132,11 @@ label collect_item_confirm(item_name, original_screen):
                 $ items_collected += 1
                 $ global_inventory.additem(Item(item_name))
                 "You collected [item_name]!"
-                call collection_menu_control(original_screen)
+                call collection_menu_control(original_screen) from _call_collection_menu_control
                 return
 
             "No":
-                call collection_menu_control(original_screen)  
+                call collection_menu_control(original_screen) from _call_collection_menu_control_1  
                 return
                 
 # if user has collected all items, return to narration

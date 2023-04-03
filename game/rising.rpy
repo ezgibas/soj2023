@@ -5,7 +5,7 @@ label rising_action:
 
     "The grass is soft beneath your feet as you step out. The cicadas are beneath you. You can only hope for their cooperation with you tonight…"
 
-    call collection_menu
+    call collection_menu from _call_collection_menu
 
     label collection_menu_end:
         "You have everything you remember needing from the outside… you think…"
